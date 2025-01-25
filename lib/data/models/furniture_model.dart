@@ -69,9 +69,9 @@ class FurnitureData {
   });
 
   factory FurnitureData.fromJson(Map<String, dynamic> json) =>
-      _$DatumFromJson(json);
+      _$FurnitureDataFromJson(json);
 
-  Map<String, dynamic> toJson() => _$DatumToJson(this);
+  Map<String, dynamic> toJson() => _$FurnitureDataToJson(this);
 }
 
 @JsonSerializable()

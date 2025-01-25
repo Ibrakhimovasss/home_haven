@@ -22,7 +22,8 @@ Map<String, dynamic> _$FurnitureModelToJson(FurnitureModel instance) =>
       'pagination': instance.pagination,
     };
 
-FurnitureData _$DatumFromJson(Map<String, dynamic> json) => FurnitureData(
+FurnitureData _$FurnitureDataFromJson(Map<String, dynamic> json) =>
+    FurnitureData(
       id: json['_id'] as String?,
       name: json['name'] as String?,
       description: json['description'] as String?,
@@ -44,7 +45,8 @@ FurnitureData _$DatumFromJson(Map<String, dynamic> json) => FurnitureData(
       category: json['category'] as String?,
     );
 
-Map<String, dynamic> _$DatumToJson(FurnitureData instance) => <String, dynamic>{
+Map<String, dynamic> _$FurnitureDataToJson(FurnitureData instance) =>
+    <String, dynamic>{
       '_id': instance.id,
       'name': instance.name,
       'description': instance.description,
