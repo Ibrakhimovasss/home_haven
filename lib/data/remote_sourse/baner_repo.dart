@@ -1,23 +1,34 @@
 import 'dart:convert';
+import 'dart:developer';
 
-import 'package:home_haven/common/network_constants.dart';
-import 'package:home_haven/data/models/banner_model.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class BannerRepo {
-  Future<BannerModel> getBannerData() async {
-    final url = Uri.parse("${NetworkConstants.baseUrl}/bannner");
+  static const String _baseUrl = "https://e-commerce.birnima.uz/api";
 
+  static Future<List<dynamic>> getFurnitures() async {
+    final url = Uri.parse("$_baseUrl/products");
+    final prefs = await SharedPreferences.getInstance();
+    final token = prefs.getString("token");
     try {
-      final response = await http.get(url);
+      final response = await http.get(
+        url,
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer $token",
+        },
+      );
       if (response.statusCode == 200) {
-        BannerModel banner = BannerModel.fromJson(jsonDecode(response.body));
-        return banner;
+        log(response.body);
+        final payload = jsonDecode(response.body)["data"];
+
+        return payload;
       } else {
-        throw Exception("Error ${response.statusCode}");
+        throw Exception("Failed to load furniture");
       }
     } catch (e) {
-      throw Exception(e);
+      throw Exception("Error fetching furniture");
     }
   }
 }
