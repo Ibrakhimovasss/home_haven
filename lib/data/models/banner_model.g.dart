@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'card_model.dart';
+part of 'banner_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-CardModel _$CardModelFromJson(Map<String, dynamic> json) => CardModel(
+BannerModel _$BannerModelFromJson(Map<String, dynamic> json) => BannerModel(
       data: (json['data'] as List<dynamic>?)
           ?.map((e) => Datum.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -15,7 +15,8 @@ CardModel _$CardModelFromJson(Map<String, dynamic> json) => CardModel(
           : Pagination.fromJson(json['pagination'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$CardModelToJson(CardModel instance) => <String, dynamic>{
+Map<String, dynamic> _$BannerModelToJson(BannerModel instance) =>
+    <String, dynamic>{
       'data': instance.data,
       'pagination': instance.pagination,
     };

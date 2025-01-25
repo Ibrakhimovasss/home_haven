@@ -1,22 +1,22 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'card_model.g.dart';
+part 'banner_model.g.dart';
 
 @JsonSerializable()
-class CardModel {
+class BannerModel{
     @JsonKey(name: "data")
     final List<Datum>? data;
     @JsonKey(name: "pagination")
     final Pagination? pagination;
 
-    CardModel({
+    BannerModel({
         this.data,
         this.pagination,
     });
 
-    factory CardModel.fromJson(Map<String, dynamic> json) => _$CardModelFromJson(json);
+    factory BannerModel.fromJson(Map<String, dynamic> json) => _$BannerModelFromJson(json);
 
-    Map<String, dynamic> toJson() => _$CardModelToJson(this);
+    Map<String, dynamic> toJson() => _$BannerModelToJson(this);
 }
 
 @JsonSerializable()
